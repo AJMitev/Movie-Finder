@@ -9,9 +9,10 @@ import { LandingComponent } from "./landing/landing.component";
 import { MovieService } from "./services/movie.service";
 import { MoviesComponent } from './movies/movies.component';
 import { MovieComponent } from './movie/movie.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
-  declarations: [AppComponent, NavbarComponent, LandingComponent, MoviesComponent, MovieComponent],
+  declarations: [AppComponent, NavbarComponent, LandingComponent, MoviesComponent, MovieComponent, FooterComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [MovieService],
   bootstrap: [AppComponent]

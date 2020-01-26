@@ -4,12 +4,12 @@
       <div class="container">
         <h1>Find a movie</h1>
         <p>Search for a movie using the form below:</p>
-        <form #f="ngForm" (ngSubmit)="search(f.value)">
+        <form #f="ngForm" (ngSubmit)="search(f.value)" class="form-inline">
           <input
             required
             minlength="3"
             name="query"
-            class="form-control input-lg"
+            class="form-control col-form-label col-form-label-lg col-9 "
             type="text"
             placeholder="Search"
             aria-label="Search"
@@ -17,7 +17,7 @@
           />
           <button
             [disabled]="f.invalid"
-            class="btn btn-default mt-2"
+            class="btn btn-secondary col-2 ml-2"
             type="submit"
           >
             Search

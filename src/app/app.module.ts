@@ -11,6 +11,11 @@ import { MoviesComponent } from './movies/movies.component';
 import { MovieComponent } from './movie/movie.component';
 import { FooterComponent } from './footer/footer.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
+import { SingleMovieResolver } from './services/resolvers/single-movie.resolver';
+import { PopularMoviesResolver } from './services/resolvers/popularMovies.resolver';
+import { TheaterMoviesResolver } from './services/resolvers/theaterMovies.resolver';
+import { BestDramaMoviesResolver } from './services/resolvers/bestDramaMovies.resolver';
+import { PopularKidsMoviesResolver } from './services/resolvers/popularKidsMovies.resolver';
 
 @NgModule({
   declarations: [
@@ -23,7 +28,14 @@ import { MovieDetailsComponent } from './movie-details/movie-details.component';
     MovieDetailsComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
-  providers: [MovieService],
+  providers: [
+    MovieService,
+    SingleMovieResolver,
+    BestDramaMoviesResolver,
+    PopularKidsMoviesResolver,
+    PopularMoviesResolver,
+    TheaterMoviesResolver
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

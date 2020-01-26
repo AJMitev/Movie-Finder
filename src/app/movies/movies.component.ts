@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import Movie from '../models/movie';
-import { MovieService } from '../services/movie.service';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -8,7 +8,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './movies.component.html',
   styleUrls: ['./movies.component.css']
 })
-export class MoviesComponent implements OnInit, OnDestroy {
+export class MoviesComponent implements OnInit {
   popularMovies: Movie[];
   inTheatreMovies: Movie[];
   popularKidsMovies: Movie[];
@@ -19,34 +19,12 @@ export class MoviesComponent implements OnInit, OnDestroy {
   popularKidsMoviesSub: Subscription;
   bestDramaMoviesSub: Subscription;
 
-  constructor(private moviesService: MovieService) {}
-
-  ngOnInit() {
-    this.popularMoviesSub = this.moviesService.getPopular().subscribe(data => {
-      this.popularMovies = data;
-    });
-
-    this.theaterMoviesSub = this.moviesService.getTheaters().subscribe(data => {
-      this.inTheatreMovies = data;
-    });
-
-    this.popularKidsMoviesSub = this.moviesService
-      .getPopularKidsMovies()
-      .subscribe(data => {
-        this.popularKidsMovies = data;
-      });
-
-    this.bestDramaMoviesSub = this.moviesService
-      .getBestDramaMovies()
-      .subscribe(data => {
-        this.bestDramaMovies = data;
-      });
+  constructor(private router: ActivatedRoute) {
+    this.popularMovies = this.router.snapshot.data['popularMovies'];
+    this.inTheatreMovies = this.router.snapshot.data['theaterMovies'];
+    this.bestDramaMovies = this.router.snapshot.data['bestDramaMovies'];
+    this.popularKidsMovies = this.router.snapshot.data['popularKidsMovies'];
   }
 
-  ngOnDestroy(): void {
-    this.popularKidsMoviesSub.unsubscribe();
-    this.popularMoviesSub.unsubscribe();
-    this.theaterMoviesSub.unsubscribe();
-    this.bestDramaMoviesSub.unsubscribe();
-  }
+  ngOnInit() {}
 }

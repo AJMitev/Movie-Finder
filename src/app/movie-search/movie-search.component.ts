@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import Movie from '../models/movie';
 import { MovieService } from '../services/movie.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-move-search',
@@ -18,10 +18,12 @@ export class MovieSearchComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.query = this.route.snapshot.queryParams['query'];
+    this.route.queryParams.subscribe((params: Params) => {
+      this.query = params['query'];
 
-    this.movieService.searchMovie(this.query).subscribe(data => {
-      this.searchedMovies = data['results'];
+      this.movieService.searchMovie(this.query).subscribe(data => {
+        this.searchedMovies = data['results'];
+      });
     });
   }
 }

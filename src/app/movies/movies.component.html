@@ -1,12 +1,24 @@
 <h3 class="text-center">Popular Movies</h3>
 <div class="row">
-    <div class="col-md-2 col-sm-3" *ngFor="let movie of popularMovies;">
-        <app-movie [movie]="movie"></app-movie>
-    </div>
+  <div class="col-md-2 col-sm-3" *ngFor="let movie of popularMovies">
+    <app-movie [movie]="movie"></app-movie>
+  </div>
 </div>
-<h3 class="text-center">In Theater Movies></h3>
+<h3 class="text-center">In Theater Movies</h3>
 <div class="row">
-    <div class="col-md-2 col-sm-3" *ngFor="let movie of inTheatreMovies;">
-        <app-movie [movie]="movie"></app-movie>
-    </div>
+  <div class="col-md-2 col-sm-3" *ngFor="let movie of inTheatreMovies">
+    <app-movie [movie]="movie"></app-movie>
+  </div>
+</div>
+<h3 class="text-center">Popular Kids Movies</h3>
+<div class="row">
+  <div class="col-md-2 col-sm-3" *ngFor="let movie of popularKidsMovies">
+    <app-movie [movie]="movie"></app-movie>
+  </div>
+</div>
+<h3 class="text-center">Best Drama Movies</h3>
+<div class="row">
+  <div class="col-md-2 col-sm-3" *ngFor="let movie of bestDramaMovies">
+    <app-movie [movie]="movie"></app-movie>
+  </div>
 </div>

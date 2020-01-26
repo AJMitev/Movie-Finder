@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +17,8 @@ import { PopularMoviesResolver } from './services/resolvers/popularMovies.resolv
 import { TheaterMoviesResolver } from './services/resolvers/theaterMovies.resolver';
 import { BestDramaMoviesResolver } from './services/resolvers/bestDramaMovies.resolver';
 import { PopularKidsMoviesResolver } from './services/resolvers/popularKidsMovies.resolver';
+import { MovieSearchComponent } from './movie-search/movie-search.component';
+import { MoviesListResolver } from './services/resolvers/moviesList.resolver';
 
 @NgModule({
   declarations: [
@@ -25,16 +28,18 @@ import { PopularKidsMoviesResolver } from './services/resolvers/popularKidsMovie
     MoviesComponent,
     MovieComponent,
     FooterComponent,
-    MovieDetailsComponent
+    MovieDetailsComponent,
+    MovieSearchComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [
     MovieService,
     SingleMovieResolver,
     BestDramaMoviesResolver,
     PopularKidsMoviesResolver,
     PopularMoviesResolver,
-    TheaterMoviesResolver
+    TheaterMoviesResolver,
+    MoviesListResolver
   ],
   bootstrap: [AppComponent]
 })

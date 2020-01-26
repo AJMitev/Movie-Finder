@@ -50,4 +50,10 @@ export class MovieService {
       .get<Movie[]>(BASE_URL + this.bestDramaMoviesEndPoint + API_KEY)
       .pipe(map(data => data['results'].slice(0, 6)));
   }
+
+  searchMovie(query: string): Observable<Movie[]> {
+    return this.http.get<Movie[]>(
+      BASE_URL + 'search/movie' + API_KEY_ALT + `&query=${query}`
+    );
+  }
 }

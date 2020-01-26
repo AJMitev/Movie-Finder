@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col">
+    <h3 class="text-center">Results Found:</h3>
+    <ng-template [ngIf]="searchedMovies" [ngIfElse]="noMovies">
+      <div class="row">
+        <div class="col-md-2 col-sm-3" *ngFor="let movie of searchedMovies">
+          <app-movie [movie]="movie"></app-movie>
+        </div>
+      </div>
+    </ng-template>
+  </div>
+</div>
+<ng-template #noMovies>
+  <div class="text-center">
+    <h2>
+      <strong>No movies found about: {{ query }}</strong>
+    </h2>
+  </div>
+</ng-template>

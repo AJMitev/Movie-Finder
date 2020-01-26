@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import MovieDetails from '../models/movieDetails';
+import MovieDetails from '../../models/movieDetails';
 
 @Component({
   selector: 'app-movie-details',
@@ -14,5 +14,5 @@ export class MovieDetailsComponent implements OnInit {
     this.movie = this.route.snapshot.data['singleMovie'];
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
 }

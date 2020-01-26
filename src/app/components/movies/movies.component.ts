@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import Movie from '../models/movie';
+import Movie from '../../models/movie';
 
 @Component({
   selector: 'app-movies',
@@ -27,5 +27,5 @@ export class MoviesComponent implements OnInit {
     // this.popularKidsMovies = this.router.snapshot.data['popularKidsMovies'];
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
 }
